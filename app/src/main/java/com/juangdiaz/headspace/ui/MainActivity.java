@@ -1,10 +1,12 @@
 package com.juangdiaz.headspace.ui;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.juangdiaz.headspace.R;
+import com.juangdiaz.headspace.adapters.ItemsAdapter;
 import com.juangdiaz.headspace.models.WalmartResponse;
 import com.juangdiaz.headspace.ui.presenters.MainPresenter;
 import com.juangdiaz.headspace.ui.views.MainViewInterface;
@@ -60,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
         if (walmartResponse != null) {
             Log.d(TAG, walmartResponse.getItems().get(1).getName());
+
+            ViewPager viewPager = findViewById(R.id.viewpager);
+            viewPager.setAdapter(new ItemsAdapter(this, walmartResponse.getItems()));
         } else {
             Log.d(TAG, "Walmart Items response null");
         }
