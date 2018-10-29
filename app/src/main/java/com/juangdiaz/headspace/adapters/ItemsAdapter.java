@@ -27,9 +27,9 @@ public class ItemsAdapter extends PagerAdapter {
         this.items = items;
     }
 
+    @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup collection, int position) {
-
 
         LayoutInflater inflater = LayoutInflater.from(context);
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.row_items, collection, false);
@@ -46,10 +46,7 @@ public class ItemsAdapter extends PagerAdapter {
 
         collection.addView(view);
         return view;
-
     }
-
-
 
 
     @Override
